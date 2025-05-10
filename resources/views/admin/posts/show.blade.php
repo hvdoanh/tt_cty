@@ -7,15 +7,35 @@
         <small class="text-muted">Tạo lúc: {{ $post->created_at->format('d/m/Y H:i') }}</small>
     </div>
     <div class="card-body">
-        <div class="mb-4">
-            <h5>Slug:</h5>
-            <p>{{ $post->slug }}</p>
+        <div class="mb-3">
+            <strong>Tác giả:</strong>
+            {{ $post->author ? $post->author->name : 'Không xác định' }}
+        </div>
+
+        <div class="mb-3">
+            <strong>Slug:</strong>
+            {{ $post->slug }}
+        </div>
+
+        <div class="mb-3">
+            <strong>Trạng thái:</strong>
+            {{ ucfirst($post->status) }}
+        </div>
+
+        <div class="mb-3">
+            <strong>Ngày đăng:</strong>
+            {{ $post->published_at ? $post->published_at->format('d/m/Y H:i') : '-' }}
+        </div>
+
+        <div class="mb-3">
+            <strong>Cập nhật lần cuối:</strong>
+            {{ $post->updated_at->format('d/m/Y H:i') }}
         </div>
 
         <div class="mb-4">
-            <h5>Nội dung:</h5>
+            <strong>Nội dung:</strong>
             <div class="p-3 bg-light rounded">
-                {{ $post->content }}
+                {!! nl2br(e($post->content)) !!}
             </div>
         </div>
 
@@ -24,4 +44,4 @@
         </div>
     </div>
 </div>
-@endsection 
+@endsection

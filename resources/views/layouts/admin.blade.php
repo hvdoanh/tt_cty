@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     @stack('styles')
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -18,6 +20,11 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.posts.index') }}">Bài viết</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.authors.index') }}">Tác giả</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
@@ -39,11 +46,11 @@
     </nav>
 
     <div class="container mt-4">
-        @if(session('success'))
+        @if (session('success'))
             <x-alert type="success" :message="session('success')" />
         @endif
 
-        @if(session('error'))
+        @if (session('error'))
             <x-alert type="error" :message="session('error')" />
         @endif
 
@@ -59,4 +66,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     @stack('scripts')
 </body>
-</html> 
+
+</html>
