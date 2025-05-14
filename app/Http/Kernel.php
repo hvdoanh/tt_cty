@@ -28,7 +28,7 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-            \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
+            \Illuminate\Routing\Middleware\ThrottleRequests::class . ':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
@@ -45,6 +45,14 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'check.role' => \App\Http\Middleware\CheckRole::class,
     ];
-} 
+
+    protected $routeMiddleware = [
+        // Các middleware khác
+        'admin' => \App\Http\Middleware\AdminMiddleware::class,
+    ];
+
+    protected $policies = [
+        Post::class => PostPolicy::class,
+    ];
+}

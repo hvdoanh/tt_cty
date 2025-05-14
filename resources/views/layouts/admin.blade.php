@@ -27,6 +27,11 @@
                         <a class="nav-link" href="{{ route('admin.authors.index') }}">Tác giả</a>
                     </li>
                 </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.courses.index') }}">khoá học</a>
+                    </li>
+                </ul>
                 <ul class="navbar-nav ms-auto">
                     @auth
                         <li class="nav-item">
